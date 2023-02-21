@@ -8,13 +8,8 @@ oc apply -k bootstrap/argocd
 oc apply -k bootstrap/deploy/application/01_rhsso-dev
 ```
 
-# Install Database for test
-# add values to secret for DB
-```
-oc apply -k bootstrap/deploy/02_rhsso-test
-```
 # Install Database for prod
-# add values to secret for DB
+## add values to secret for DB
 ```
 oc apply -k bootstrap/deploy/application/03_rhsso-prod
 ```
