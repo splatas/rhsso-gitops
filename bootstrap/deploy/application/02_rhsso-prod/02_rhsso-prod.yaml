@@ -4,15 +4,15 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  name: rhsso-test
-  namespace: rhsso-dev
+  name: rhsso-prod
+  namespace: openshift-gitops
 spec:
   destination:
     name: ''
-    namespace: openshift-operators
+    namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: resources/02_rhsso-test
+    path: resources/02_rhsso-prod
     repoURL: 'https://github.com/ignaciolago/keycloak-gitops.git'
     targetRevision: HEAD
   project: default
