@@ -13,7 +13,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: resources/02_rhsso-prod
-    repoURL: 'https://github.com/ignaciolago/keycloak-gitops.git'
+    repoURL: 'https://github.com/splatas/rhsso-gitops'
     targetRevision: HEAD
   project: default
   syncPolicy:
