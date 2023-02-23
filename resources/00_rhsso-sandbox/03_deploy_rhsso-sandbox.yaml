@@ -11,7 +11,7 @@ spec:
   multiAvailablityZones:
     enabled: true
   externalDatabase:
-    enabled: true
+    enabled: false
   keycloakDeploymentSpec:
     imagePullPolicy: Always
   postgresDeploymentSpec:
