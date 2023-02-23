@@ -1,4 +1,7 @@
 # keycloak-gitops
+
+This repo is based on https://github.com/ignaciolago/keycloak-gitops
+
 ## First we install the argocd operator:
 ```
 oc apply -k bootstrap/argocd
