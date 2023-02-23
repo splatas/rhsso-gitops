@@ -10,8 +10,10 @@ metadata:
 spec:
   multiAvailablityZones:
     enabled: true
-  externalDatabase:
-    enabled: false
+  externalAccess:
+    enabled: true
+#  externalDatabase:
+#    enabled: true
   keycloakDeploymentSpec:
     imagePullPolicy: Always
   postgresDeploymentSpec:
