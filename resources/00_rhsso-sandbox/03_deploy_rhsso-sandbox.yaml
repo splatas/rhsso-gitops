@@ -18,5 +18,5 @@ spec:
     imagePullPolicy: Always
   postgresDeploymentSpec:
     imagePullPolicy: Always
-  instances: 2
+  instances: 1
   storageClassName: gp2
