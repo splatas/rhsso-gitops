@@ -8,8 +8,8 @@ metadata:
     app: rhsso-sandbox
   namespace: rhsso-sandbox
 spec:
-   disableReplicasSyncing: true
-  # disable the Replica sync in order to use the HPA for scalling
+  disableReplicasSyncing: true
+# disable the Replica sync in order to use the HPA for scalling
   multiAvailablityZones:
     enabled: true
   externalAccess:
