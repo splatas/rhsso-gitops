@@ -10,7 +10,7 @@ spec:
     kind: StatefulSet
     name: keycloak
     apiVersion: apps/v1
-  minReplicas: 2
+  minReplicas: 1
   maxReplicas: 3
   metrics:
     - type: Resource
