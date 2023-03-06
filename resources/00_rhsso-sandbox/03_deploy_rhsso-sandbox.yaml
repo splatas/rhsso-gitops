@@ -14,8 +14,8 @@ spec:
     enabled: true
   externalAccess:
     enabled: true
-#  externalDatabase:
-#    enabled: true
+  externalDatabase:
+    enabled: true
   keycloakDeploymentSpec:
     imagePullPolicy: Always
   postgresDeploymentSpec:
