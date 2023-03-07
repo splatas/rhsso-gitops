@@ -2,7 +2,7 @@
 
 This repo is based on https://github.com/ignaciolago/keycloak-gitops
 ## Login: 
-oc login --token=$TOKEN --server=https://api.a-snb-rosa-01.64dp.p1.openshiftapps.com:6443
+oc login --token=$TOKEN --server=https://api.XXXXX.openshiftapps.com:6443
 
 
 ## First we install the argocd operator:
