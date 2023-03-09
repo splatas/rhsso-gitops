@@ -1,6 +1,9 @@
 # keycloak-gitops
 
 This repo is based on https://github.com/ignaciolago/keycloak-gitops
+## Login: 
+oc login --token=$TOKEN --server=https://api.XXXXX.openshiftapps.com:6443
+
 
 ## First we install the argocd operator:
 ```
@@ -18,16 +21,21 @@ oc apply -k bootstrap/deploy/application/00_rhsso-sandbox
 oc apply -k bootstrap/deploy/application/01_rhsso-dev
 ```
 
+## Install the Red Hat Single Sign TEST Environment using Red Hat Single Sign On Operator
+```
+oc apply -k bootstrap/deploy/application/02_rhsso-test
+```
+
 # Install Database for prod
 ## add values to secret for DB
 ```
-oc apply -k bootstrap/deploy/application/03_rhsso-prod
+oc apply -k bootstrap/deploy/application/04_rhsso-prod
 ```
 
 
-
+================
 # Create secret using personal Tokens:
-We need to create a Secret with our personal Github token to access to 'customer' repo (below defined as 'url')
+We can create a Secret with our personal Github token to access to 'customer' repo (below defined as 'url')
 ```
 $ cat <<EOF | oc apply -f -
 apiVersion: v1
