@@ -1,10 +1,14 @@
 # keycloak-gitops
 
 This repo is based on https://github.com/ignaciolago/keycloak-gitops
+
+
 ## Login: 
 oc login --token=$TOKEN --server=https://api.XXXXX.openshiftapps.com:6443
 
 
+.
+# Kustomize approach
 ## First we install the argocd operator:
 ```
 oc apply -k bootstrap/argocd
@@ -53,3 +57,8 @@ EOF
 ```
 
 To get my GITHUB_TOKEN go to: https://github.com/settings/tokens => 'Generate new Token'
+
+
+
+# HELM approach
+See [Helm Chart installation](./rhsso-operator/README.md)

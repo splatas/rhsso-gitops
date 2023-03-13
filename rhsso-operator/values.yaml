@@ -1,0 +1,36 @@
+---
+subscription:
+  name: rhsso-operator
+  namespace: rhsso-dev
+  startingCSV: rhsso-operator.7.6.1-opr-005
+
+secret:
+  postgres_database: ""
+  postgres_username: ""
+  postgres_password: ""
+  postgres_external_address: ""
+  postgres_external_port: ""
+
+keycloak:
+  name: rhsso-dev
+  namespace: rhsso-dev
+  disableReplicasSyncing: true
+  multiAvailablityZones:
+    enabled: true
+  externalAccess:
+    enabled: true
+  externalDatabase:
+    enabled: true
+  keycloakDeploymentSpec:
+    imagePullPolicy: Always
+  postgresDeploymentSpec:
+    imagePullPolicy: Always
+  instances: 1
+  storageClassName: gp2
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 50
+  targetMemoryUtilizationPercentage: 50
+  averageUtilization: 50
