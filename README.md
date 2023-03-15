@@ -62,3 +62,6 @@ To get my GITHUB_TOKEN go to: https://github.com/settings/tokens => 'Generate ne
 
 # HELM approach
 See [Helm Chart installation](./rhsso-operator/README.md)
+
+# Securing applications with Keycloack
+To secure applications with Keycloack please see [Securing applications with Keycloak](./secured-apps/README.md)
