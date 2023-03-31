@@ -1,6 +1,7 @@
 package org.acme;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -13,4 +14,14 @@ public class GreetingResource {
     public String hello() {
         return "Hello RESTEasy";
     }
+
+    @GET
+    @Path("/secured")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String securedHello() {
+        return "Hello secured RESTEasy";
+    }
+
+
+
 }
