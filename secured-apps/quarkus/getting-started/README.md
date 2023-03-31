@@ -39,7 +39,7 @@ $ mvn quarkus:dev
 $ curl -w "\n" http://localhost:8082/hello
 ```
  <!-- ![Hello](./images/00.hello.png) -->
-<img src="./images/00.hello.png" width="250" height="80">
+<img src="./images/00.hello.png" width="300" height="100">
 
 
 ---
@@ -57,6 +57,13 @@ For details on how to do a local installation, please see: https://access.redhat
 Once running, go to the 'Admin Console' for RH-SSO at http://localhost:8080/auth/admin/. Create a realm called 'quarkus' and add a user named 'user1' to this realm.
 
 <img src="./images/03.user.png" width="450" height="300">
+
+It is necesary to set the password for this user:
+
+<img src="./images/07.user1-credentials.png" width="300" height="250">
+
+Remember to change:
+-Temporary: **OFF**
 
 After this it is necesary to create a Client that we'll use to consume our secured Quarkus app.
 Within the 'quarkus' realm, create a client named 'hello'. This corresponds to the Quarkus example application you've installed. Configure the client with:  
@@ -117,9 +124,13 @@ We should see how our app trigger the discovery process looking for the REALM we
 ## Testing the secured application
 
 ### Using browser
-We can  
-<mark>COMPLETAR</mark>
+Now if we try to access http://localhost:8082/hello, we'll be redirected to login page. We need to use the credentials defined for 'user1':
 
+<img src="./images/06.browse-test-login.png" width="350" height="200">
+
+After sign in we'll be able to see the content:
+
+<img src="./images/00.hello.png" width="300" height="100">
 
 ### From command-line:
 We can use **curl** command to test our app. If we try with the original command:
