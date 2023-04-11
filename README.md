@@ -63,5 +63,13 @@ To get my GITHUB_TOKEN go to: https://github.com/settings/tokens => 'Generate ne
 # HELM approach
 See [Helm Chart installation](./rhsso-operator/README.md)
 
+# Testing Keycloack/RH-SSO
+To performe some tests of a RH-SSO instance we can run tests described on: [Testing Keycloak](./testing_rhsso/README.md)
+
+There we have defined the following tests:
+
+- Check if exists clients in an specific RH-SSO REALM
+- Check if exists roles in an specific RH-SSO REALM
+
 # Securing applications with Keycloack
 To secure applications with Keycloack please see [Securing applications with Keycloak](./secured-apps/README.md)
