@@ -13,7 +13,7 @@ oc login --token=$TOKEN --server=https://api.XXXXX.openshiftapps.com:6443
 ```
 oc apply -k bootstrap/argocd
 ```
-## Second we install the Red Hat Single Sign Dev Environment using Red Hat Single Sign On Operator
+## Second we install the Red Hat Si	ngle Sign Dev Environment using Red Hat Single Sign On Operator
 
 ### SANDBOX (just for TESTING)
 ```
@@ -64,7 +64,15 @@ To get my GITHUB_TOKEN go to: https://github.com/settings/tokens => 'Generate ne
 See [Helm Chart installation](./rhsso-operator/README.md)
 
 # Testing Keycloack/RH-SSO
-To performe some tests of a RH-SSO instance we can run tests described on: [Testing Keycloak](./testing_rhsso/README.md)
+## Postman
+We can perform some requests to Keycloack REST API using Postman collections.
+To do that we just need:
+1. Open a local installation of Postman (it doesn't work from web because refers to local RHSSO instance)
+2. Import collections from [Postman Collections](./testing_rhsso/postman/01.LOCAL-SSO.postman_collection.json)
+3. Run requests defined there
+
+## Python KCAPI
+To perform some tests of a RH-SSO instance we can run tests described on: [Testing Keycloak](./testing_rhsso/README.md)
 
 There we have defined the following tests:
 
