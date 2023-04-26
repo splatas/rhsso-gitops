@@ -17,8 +17,14 @@ $ oc delete project rhsso-dev
 $ oc new-project rhsso-dev
 ```
 
+## Prerequisites:
+You need to have installed RH-SSO Operator. Here you have two options:
+1. Use the Openshift Web Console to install it. See this link: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.4/html/server_installation_and_configuration_guide/operator#install_by_olm
+2. Use the command-line approach: https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.4/html/server_installation_and_configuration_guide/operator#install_by_command
+
 ## Install HELM chart:
 We install RHSSO Operator with a Helm Chart (Chart.yaml) named 'rhsso-operator':
+
 ### Default installation:
 ```
 $ helm install rhsso-operator ./rhsso-operator -n rhsso-dev
