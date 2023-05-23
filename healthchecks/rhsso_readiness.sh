@@ -9,7 +9,7 @@
 
 # Parameters
 export ITERATIONS=3000
-export SECONDS_DELAY=5
+export SECONDS_DELAY=10
 export POD='null'
 export RHSSO_RUNNING=false
 export READINESS_COMMAND='python $JBOSS_HOME/bin/probes/runner.py -c READY --debug --logfile /tmp/readiness-log --loglevel DEBUG probe.eap.dmr.EapProbe probe.eap.dmr.HealthCheckProbe;'
@@ -46,12 +46,20 @@ do
 			# 2. RUN THE READINESS PROBE
 			for (( r=1; r<=$ITERATIONS; r++ ))
 			do
-				echo "		--> Attempt number $r with '$POD'"
+				if [[ $POD == "" ]]
+				then
+					echo "	"
+					echo "		--> WARNING: previous pod seems to have been destroyed. Now is: '$POD' <-- "
+					echo "	"
+				fi
+				
+				echo "		--> Attempt number $r, pod: '$POD'"
 				
 				READINESS_RESPONSE=$(kubectl exec $POD -n $NAMESPACE -- /bin/bash -c "$READINESS_COMMAND")
 				echo "Readiness Response: $READINESS_RESPONSE" > ./$LOG_FILE
 				
 				# 3. ANALIZE THE RESPONSE
+				# ----------------------------------------------------------------------------
 				# RESPONSE FORMAT: {
 				#	    "probe.eap.dmr.EapProbe": {
 				#	        "probe.eap.dmr.ServerStatusTest": "running",
@@ -67,7 +75,7 @@ do
 				#	}
 				#
 				# When deployment is not finished:	 "keycloak-server.war": "FAILED"
-				# ---------------------
+				# ----------------------------------------------------------------------------
 				RESULT=$(cat ./$LOG_FILE | grep keycloak-server.war | grep OK)
 				
 				if [[ "$RESULT" == *"OK"* ]]; then
@@ -78,6 +86,9 @@ do
 				else 
 					echo "		--> RESULT: $RESULT ---> RHSSO not ready yet. Checking continues..."
 					sleep $SECONDS_DELAY
+					
+					# 3. VERIFY THE POD NAME: is the same?
+					POD=$(kubectl get pods -n $NAMESPACE | grep sso | grep -v postgresql | grep -v deploy | grep Running | awk '{print $1;}')
 				fi
 			done
 			
