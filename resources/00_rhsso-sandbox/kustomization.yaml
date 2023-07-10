@@ -4,8 +4,8 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
 - 00_namespace_rhsso-sandbox.yaml
-- 01_rhsso-operator_resourcegroups.yaml
+#- 01_rhsso-operator_resourcegroups.yaml
 #- 02_secret_rhsso-sandbox-database.yaml
-- 03_rh-sso-operator.yaml
-- 04_deploy_rhsso-sandbox.yaml
-- 05_rh-sso-hpa.yaml
+#- 03_rh-sso-operator.yaml
+#- 04_deploy_rhsso-sandbox.yaml
+#- 05_rh-sso-hpa.yaml
