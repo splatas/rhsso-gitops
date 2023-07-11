@@ -1,14 +1,15 @@
 # keycloak-gitops
 
+## RESUME
 This repo is based on https://github.com/ignaciolago/keycloak-gitops
 
+This implementation is based on RH-SSO Operator. External database configuration for databases such as MySQL, Oracle DB, MariaDB and Microsoft SQL Server are not available when RH-SSO 7.x is deployed on Openshift using the RH-SSO Operator. 
 
-## Login: 
+## Login
 oc login --token=$TOKEN --server=https://api.XXXXX.openshiftapps.com:6443
 
-
 .
-# Kustomize approach
+# RH-SSO Operator + Kustomize approach
 ## First we install the argocd operator:
 ```
 oc apply -k bootstrap/argocd
@@ -60,7 +61,7 @@ To get my GITHUB_TOKEN go to: https://github.com/settings/tokens => 'Generate ne
 
 
 
-# HELM approach
+# RH-SSO Operator + HELM approach
 See [Helm Chart installation](./rhsso-operator/README.md)
 
 # Testing Keycloack/RH-SSO
