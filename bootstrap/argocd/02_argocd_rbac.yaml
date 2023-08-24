@@ -7,7 +7,9 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller
-    namespace: openshift-gitops
+    # I will install Argo in my own namespace on Openshift Online
+    #namespace: openshift-gitops
+    namespace: rhn-gps-splatas-dev
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole

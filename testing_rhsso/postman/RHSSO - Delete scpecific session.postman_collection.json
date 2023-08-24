@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "0e3543a4-212e-498a-8a4c-8a8998a78751",
+		"name": "RHSSO - Delete scpecific session",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtain admin token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "requested_token_type",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "subject_issuer",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "subject_token_type",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "audience",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "requested_subject",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "scope",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtain clients id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxWVNieU0tMXRaaUt0YnNZZjRnbDE0WWotQ3Fsdi1lV1ZtcXhDZTVGeHpFIn0.eyJleHAiOjE2Nzk0OTg5NTEsImlhdCI6MTY3OTQ5ODg5MSwianRpIjoiZmRlN2I2NDYtMzA3MS00M2Q1LThmYWUtZTViN2RkNjNjMDhmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsInN1YiI6ImIwYmI0MzNiLTIxNmQtNDkzYy04NGM3LTUyYWU3NTgzZjVmNyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLWNsaSIsInNlc3Npb25fc3RhdGUiOiIzMGYwMWE0MS0yYzNmLTQ0NjctYTZhMS1lZjY4OTliNTk3MTQiLCJhY3IiOiIxIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMzBmMDFhNDEtMmMzZi00NDY3LWE2YTEtZWY2ODk5YjU5NzE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.GZf7Qy9Pu-yZ5OZYR7D9nPfhmpQK9WBKqQgeU74TC-aS7x-8IuDOm21wXvfbaABHCyKKibNZ4jvK6Gh_2U7c7TpUwHRfRq8secRKpO7bnvzcMrwWDD62zeENcFAZULr6hPT13BosDnAXiNyVrnWaV0canPf6gGz9GdB4U4NmEtt20uRl-Dw1soz7h0gGRQ-YUkzDiQxLBO56t5KYTyGV1KFTsV6USATiCMM1-1d9K_QfUVszinm0cKTfJAhhWRCykeqpjPk2rfIu2kYvs5s6mEIzlZbnxouR0wOosA1e4L4x_Y8Km-PzW6k6vFz_-EmSVtje16-kKjGtubLEgj5U0g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxWVNieU0tMXRaaUt0YnNZZjRnbDE0WWotQ3Fsdi1lV1ZtcXhDZTVGeHpFIn0.eyJleHAiOjE2Nzk0OTg3MjgsImlhdCI6MTY3OTQ5ODY2OCwianRpIjoiNWJiYTJmMTktZTgwNy00ZDVmLWEzN2EtODMwZmEzNWQxMDE4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsInN1YiI6ImIwYmI0MzNiLTIxNmQtNDkzYy04NGM3LTUyYWU3NTgzZjVmNyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLWNsaSIsInNlc3Npb25fc3RhdGUiOiJmYWEyYTNlNy1jNjRkLTQzNDYtODZlNi1lNDIyYWE1ZDY0ZTUiLCJhY3IiOiIxIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiZmFhMmEzZTctYzY0ZC00MzQ2LTg2ZTYtZTQyMmFhNWQ2NGU1IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.AnBzlaDs46vMs2EtXdCTxngW5pjdFtwafUhQ4UFx7IqVRXC4mxBeCxeHlotwJ8ob6t5-sUIpuhMwWazE3_ZkkZ1TVKIzz91r64dTv3QTCq_LP0hzN6YzQdXhlg9RyYavUWXmuV3PKjwi1kMRK46oBxosMoIrcasiCtxtTFB4sUlw5SnxHMo1X0E6kR8fhzjB5_7t3e8QDYOYWeBqapqv8mvpPQQjPeY0CxdMzHauqa7eE8oITTnYxheHN_kM_wE2EE1waxaYRO7dsMaM695B94zLiW62hfqGsIqyQoJ-uqZYRl5xQxR84ZXukgJ3JijYayGO4m7o66FM_HO9TfgtPw",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/clients/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"clients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "See users sessions from client",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxWVNieU0tMXRaaUt0YnNZZjRnbDE0WWotQ3Fsdi1lV1ZtcXhDZTVGeHpFIn0.eyJleHAiOjE2Nzk0OTkwNzQsImlhdCI6MTY3OTQ5OTAxNCwianRpIjoiMDQ2MTM4Y2QtNDI1Yi00OWZlLWEwY2ItNGMxMTI4NWI2YWQwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL21hc3RlciIsInN1YiI6ImIwYmI0MzNiLTIxNmQtNDkzYy04NGM3LTUyYWU3NTgzZjVmNyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImFkbWluLWNsaSIsInNlc3Npb25fc3RhdGUiOiJhYzE4ODFkNy0zYzcxLTQwOGYtOWQ2Zi0wZjcxMWZiMTM3ZjIiLCJhY3IiOiIxIiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYWMxODgxZDctM2M3MS00MDhmLTlkNmYtMGY3MTFmYjEzN2YyIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.nwtkxXHtKMCkCIpQI9jGPMVAjOZD2LZX5Q6y3urLD36R4Nv-XfOh1SpeMxUe8Ur23RSa9aQGn6AFYBKrsBZIhhlLgQUxLn9DxkEXUzIEfdwwU5L9tsAQMocLcEdYIY2TZHA18SdSy9Mi1oE5Ea68kAyQjdfNtEf4HS07u8mJiwXeo3wK4MQZtRsqC0nO3FGI14XZTGLcjQqyDSdRXBxCEQjyYFav2Nqe0aZfxCxKfuRBIkG-lxp9fdS9TZ3hnQfqcRFpAvFeGSgKSWv75KXa5ieGxqNqyzHyaCS65GgcANUGiSlk8Y9GJHuwuaJ-xj_wz9O2C2hkR3MZMqbuX2BYoQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "account",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "urn:ietf:params:oauth:grant-type:token-exchange"
+						},
+						{
+							"key": "subject_token",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "requested_issuer",
+							"value": "govbr",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/clients/588ff451-83de-44d7-927e-86d08b37a143/user-sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"clients",
+						"588ff451-83de-44d7-927e-86d08b37a143",
+						"user-sessions"
+					],
+					"query": [
+						{
+							"key": "requested_token_type",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "subject_issuer",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "subject_token_type",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "audience",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "requested_subject",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "scope",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete specific session",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"tlsPreferServerCiphers": false
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "ssl_client_cert",
+						"value": "-----BEGIN%20CERTIFICATE-----%0AMIIFyjCCA7KgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UEBhMCQlIx%0AGjAYBgNVBAgMEVJpbyBHcmFuZGUgZG8gU3VsMRUwEwYDVQQHDAxQb3J0byBBbGVn%0AcmUxDjAMBgNVBAoMBUF6aW9uMQwwCgYDVQQLDANQT0ExFzAVBgNVBAMMDlNlbGYt%0AU2lnbmVkIENBMSQwIgYJKoZIhvcNAQkBFhVsdWNhcy5mdXJub0Bhemlvbi5jb20w%0AHhcNMjIxMjE5MjEwODQ3WhcNMjMxMjE5MjEwODQ3WjCBmTELMAkGA1UEBhMCQlIx%0AGjAYBgNVBAgMEVJpbyBHcmFuZGUgZG8gU3VsMRUwEwYDVQQHDAxQb3J0byBBbGVn%0AcmUxDjAMBgNVBAoMBUF6aW9uMQwwCgYDVQQLDANQT0ExEzARBgNVBAMMClRlc3Rl%0AIG1UTFMxJDAiBgkqhkiG9w0BCQEWFWx1Y2FzLmZ1cm5vQGF6aW9uLmNvbTCCAiIw%0ADQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAKlo%2FwST13pwyhgpYrueIHehHhUP%0Af0aQHseTk5s6nrbxnDRquklMEuwr9qtkxpcbmNX%2BZ7qBC8m%2B3mV27Y1B6AQQMGyj%0AKjoC4j3gMe2AvK55TDZaNyF3UgFStB%2FfpDSfab9omYblczbD7lPby5PETR3b0La1%0AJt8EwL%2F%2BubcJ8q1B0upx3Fbhpj3zj4MEpCLM3eW3bLAjqjvE3L%2F7VG%2BOB4Mhxrs8%0A4QHagCNz3f9c6%2F7G0vq6vbmCODlQO0qpzJCJL9U1Q2XwwAGJMYHJaI8K91vOp8mJ%0AV5KkPTOAgw7aQcOWp3cj8IXBawomlyKEsGT8bg2AqIRBo4M2vgd56TDyQgElRW53%0At15DuT18Qm0u%2BoqgU2X8OChQJCD7bEayCrz6YL8Gq2LfhCl%2Bk5cZGHJpP3CxpC8m%0A%2FGCasg%2FwKyMo2cdsOpB4zSAm8hYPtjiWksBe%2BCy1wx8JFu%2BIeRBUplX9WiU%2FApTw%0ABX7hD4IBLlxXRFsgg2Q2ufAwGjyReRHjcsy2NyNjE33l%2BAghyPydOGSz0VExNQR1%0AKfAf8JbWQsavh8qrbSwnaxcziNqM7Ai%2FfwIvow5VBpcjyLe1E0lN%2BzTXWgg8RFDF%0ARCGzZdGX8Pwl1Pc7P3bb85%2B8w2MQWiNypp7QQeBAaTHHRKqTZUuQz6A3YtV1n6QG%0AvcxVk%2FtDQRaqzmzFAgMBAAGjFzAVMBMGA1UdJQQMMAoGCCsGAQUFBwMCMA0GCSqG%0ASIb3DQEBCwUAA4ICAQABJBCv7E0wyZVmIttaX0iiGYfMtbqX4aqhIDZyKZF5tokh%0Ac26772Fce%2FfnQNi7VuIm0uU7XGNxdzUtWaBZ%2FjNGXTC7D27RAzY%2FqoHr4xirsPE1%0AfHLgTZgyM39DrCAUQfjI%2BjNEDrFrq35u0VwZEsK0Iw6oap%2F0MIIWQrromAHf1U2h%0A0U02%2FAtxm7hqlHEYywsp08t%2Ba1TCPO1occUor9JFUhKtzIXKfWuOrxr03VNszF3N%0AKhYL0Q6CeGXN51dj5Q4HGu5PYxHv961tFg24WERSnNPe1o5tu1aez7wj5VCrxrRs%0AVCUtx8qUzqMY53VSBcWR1zW3KnNjB7Jb2X4hZUK%2FbsGVH3KMHIchdeWvK3h5365c%0AGLpMOPCCst4xP2xLGINjs3dd7duXY2zAI72I0vXZHp7YdV3OpPt98V5kyWznnXQm%0A1yFMHQrkKSeS3b3ykSucR7OR3x3mdKX8ao50pr2nhjmwux%2BZSc3u9R23jkXR0Xes%0AdDZrXig51WSVoSrs2YlUgIsHpnY5SlIkKYXa6hUjmg7SFAQgTLD1kcOkoqnS3MDz%0A7ojWTTBHmNWlo77joVxj8gVHUuyRHJ5TospbIkZjNaEHBGhKSrakBdb%2BieFqulc%2B%0AFMCziMYJgYnAK0C1crrNav8L7PhSi88okuUhIq3MmBaRv4leAF4P2RQS%2BPTbBw%3D%3D%0A-----END%20CERTIFICATE-----",
+						"type": "default",
+						"disabled": true
+					},
+					{
+						"key": "SSL_CLIENT_CERT",
+						"value": "c2hpZWxkc3F1YXJlLXJlc3BvbnNlOjANCmNvbnRlbnQtdHlwZTphcHBsaWNhdGlvbi94LXd3dy1mb3JtLXVybGVuY29kZWQNCmFjY2VwdDoqLyoNCmNkbi1sb29wOmF6aW9uLmNvbTsgc3RlcHM9MQ0KaG9zdDpsb2dpbnNlcnZpY29zLmRlcy5jYWl4YS5nb3YuYnINCnNzbF9jbGllbnRfY2VydDotLS0tLUJFR0lOJTIwQ0VSVElGSUNBVEUtLS0tLSUwQU1JSUZ5akNDQTdLZ0F3SUJBZ0lCQVRBTkJna3Foa2lHOXcwQkFRc0ZBRENCblRFTE1Ba0dBMVVFQmhNQ1FsSXglMEFHakFZQmdOVkJBZ01FVkpwYnlCSGNtRnVaR1VnWkc4Z1UzVnNNUlV3RXdZRFZRUUhEQXhRYjNKMGJ5QkJiR1ZuJTBBY21VeERqQU1CZ05WQkFvTUJVRjZhVzl1TVF3d0NnWURWUVFMREFOUVQwRXhGekFWQmdOVkJBTU1EbE5sYkdZdCUwQVUybG5ibVZrSUVOQk1TUXdJZ1lKS29aSWh2Y05BUWtCRmhWc2RXTmhjeTVtZFhKdWIwQmhlbWx2Ymk1amIyMHclMEFIaGNOTWpJeE1qRTVNakV3T0RRM1doY05Nak14TWpFNU1qRXdPRFEzV2pDQm1URUxNQWtHQTFVRUJoTUNRbEl4JTBBR2pBWUJnTlZCQWdNRVZKcGJ5QkhjbUZ1WkdVZ1pHOGdVM1ZzTVJVd0V3WURWUVFIREF4UWIzSjBieUJCYkdWbiUwQWNtVXhEakFNQmdOVkJBb01CVUY2YVc5dU1Rd3dDZ1lEVlFRTERBTlFUMEV4RXpBUkJnTlZCQU1NQ2xSbGMzUmwlMEFJRzFVVEZNeEpEQWlCZ2txaGtpRzl3MEJDUUVXRld4MVkyRnpMbVoxY201dlFHRjZhVzl1TG1OdmJUQ0NBaUl3JTBBRFFZSktvWklodmNOQVFFQkJRQURnZ0lQQURDQ0Fnb0NnZ0lCQUtsbyUyRndTVDEzcHd5aGdwWXJ1ZUlIZWhIaFVQJTBBZjBhUUhzZVRrNXM2bnJieG5EUnF1a2xNRXV3cjlxdGt4cGNibU5YJTJCWjdxQkM4bSUyQjNtVjI3WTFCNkFRUU1HeWolMEFLam9DNGozZ01lMkF2SzU1VERaYU55RjNVZ0ZTdEIlMkZmcERTZmFiOW9tWWJsY3piRDdsUGJ5NVBFVFIzYjBMYTElMEFKdDhFd0wlMkYlMkJ1YmNKOHExQjB1cHgzRmJocGozemo0TUVwQ0xNM2VXM2JMQWpxanZFM0wlMkY3VkclMkJPQjRNaHhyczglMEE0UUhhZ0NOejNmOWM2JTJGN0cwdnE2dmJtQ09EbFFPMHFwekpDSkw5VTFRMlh3d0FHSk1ZSEphSThLOTF2T3A4bUolMEFWNUtrUFRPQWd3N2FRY09XcDNjajhJWEJhd29tbHlLRXNHVDhiZzJBcUlSQm80TTJ2Z2Q1NlREeVFnRWxSVzUzJTBBdDE1RHVUMThRbTB1JTJCb3FnVTJYOE9DaFFKQ0Q3YkVheUNyejZZTDhHcTJMZmhDbCUyQms1Y1pHSEpwUDNDeHBDOG0lMEElMkZHQ2FzZyUyRndLeU1vMmNkc09wQjR6U0FtOGhZUHRqaVdrc0JlJTJCQ3kxd3g4SkZ1JTJCSWVSQlVwbFg5V2lVJTJGQXBUdyUwQUJYN2hENElCTGx4WFJGc2dnMlEydWZBd0dqeVJlUkhqY3N5Mk55TmpFMzNsJTJCQWdoeVB5ZE9HU3owVkV4TlFSMSUwQUtmQWY4SmJXUXNhdmg4cXJiU3duYXhjemlOcU03QWklMkZmd0l2b3c1VkJwY2p5TGUxRTBsTiUyQnpUWFdnZzhSRkRGJTBBUkNHelpkR1g4UHdsMVBjN1AzYmI4NSUyQjh3Mk1RV2lOeXBwN1FRZUJBYVRISFJLcVRaVXVRejZBM1l0VjFuNlFHJTBBdmN4VmslMkZ0RFFSYXF6bXpGQWdNQkFBR2pGekFWTUJNR0ExVWRKUVFNTUFvR0NDc0dBUVVGQndNQ01BMEdDU3FHJTBBU0liM0RRRUJDd1VBQTRJQ0FRQUJKQkN2N0Uwd3laVm1JdHRhWDBpaUdZZk10YnFYNGFxaElEWnlLWkY1dG9raCUwQWMyNjc3MkZjZSUyRmZuUU5pN1Z1SW0wdVU3WEdOeGR6VXRXYUJaJTJGak5HWFRDN0QyN1JBelklMkZxb0hyNHhpcnNQRTElMEFmSExnVFpneU0zOURyQ0FVUWZqSSUyQmpORURyRnJxMzV1MFZ3WkVzSzBJdzZvYXAlMkYwTUlJV1Fycm9tQUhmMVUyaCUwQTBVMDIlMkZBdHhtN2hxbEhFWXl3c3AwOHQlMkJhMVRDUE8xb2NjVW9yOUpGVWhLdHpJWEtmV3VPcnhyMDNWTnN6RjNOJTBBS2hZTDBRNkNlR1hONTFkajVRNEhHdTVQWXhIdjk2MXRGZzI0V0VSU25OUGUxbzV0dTFhZXo3d2o1VkNyeHJScyUwQVZDVXR4OHFVenFNWTUzVlNCY1dSMXpXM0tuTmpCN0piMlg0aFpVSyUyRmJzR1ZIM0tNSEljaGRlV3ZLM2g1MzY1YyUwQUdMcE1PUENDc3Q0eFAyeExHSU5qczNkZDdkdVhZMnpBSTcySTB2WFpIcDdZZFYzT3BQdDk4VjVreVd6bm5YUW0lMEExeUZNSFFya0tTZVMzYjN5a1N1Y1I3T1IzeDNtZEtYOGFvNTBwcjJuaGptd3V4JTJCWlNjM3U5UjIzamtYUjBYZXMlMEFkRFpyWGlnNTFXU1ZvU3JzMllsVWdJc0hwblk1U2xJa0tZWGE2aFVqbWc3U0ZBUWdUTEQxa2NPa29xblMzTUR6JTBBN29qV1RUQkhtTldsbzc3am9WeGo4Z1ZIVXV5UkhKNVRvc3BiSWtaak5hRUhCR2hLU3Jha0JkYiUyQmllRnF1bGMlMkIlMEFGTUN6aU1ZSmdZbkFLMEMxY3JyTmF2OEw3UGhTaTg4b2t1VWhJcTNNbUJhUnY0bGVBRjRQMlJRUyUyQlBUYkJ3JTNEJTNEJTBBLS0tLS1FTkQlMjBDRVJUSUZJQ0FURS0tLS0tJTBBDQp4LWF6aW9uLXZpYTpsb2dpbnNlcnZpY29zLmRlcy5jYWl4YS5nb3YuYnINCnNzbC1jbGllbnQtY2VydDotLS0tLUJFR0lOJTIwQ0VSVElGSUNBVEUtLS0tLSUwQU1JSUZ5akNDQTdLZ0F3SUJBZ0lCQVRBTkJna3Foa2lHOXcwQkFRc0ZBRENCblRFTE1Ba0dBMVVFQmhNQ1FsSXglMEFHakFZQmdOVkJBZ01FVkpwYnlCSGNtRnVaR1VnWkc4Z1UzVnNNUlV3RXdZRFZRUUhEQXhRYjNKMGJ5QkJiR1ZuJTBBY21VeERqQU1CZ05WQkFvTUJVRjZhVzl1TVF3d0NnWURWUVFMREFOUVQwRXhGekFWQmdOVkJBTU1EbE5sYkdZdCUwQVUybG5ibVZrSUVOQk1TUXdJZ1lKS29aSWh2Y05BUWtCRmhWc2RXTmhjeTVtZFhKdWIwQmhlbWx2Ymk1amIyMHclMEFIaGNOTWpJeE1qRTVNakV3T0RRM1doY05Nak14TWpFNU1qRXdPRFEzV2pDQm1URUxNQWtHQTFVRUJoTUNRbEl4JTBBR2pBWUJnTlZCQWdNRVZKcGJ5QkhjbUZ1WkdVZ1pHOGdVM1ZzTVJVd0V3WURWUVFIREF4UWIzSjBieUJCYkdWbiUwQWNtVXhEakFNQmdOVkJBb01CVUY2YVc5dU1Rd3dDZ1lEVlFRTERBTlFUMEV4RXpBUkJnTlZCQU1NQ2xSbGMzUmwlMEFJRzFVVEZNeEpEQWlCZ2txaGtpRzl3MEJDUUVXRld4MVkyRnpMbVoxY201dlFHRjZhVzl1TG1OdmJUQ0NBaUl3JTBBRFFZSktvWklodmNOQVFFQkJRQURnZ0lQQURDQ0Fnb0NnZ0lCQUtsbyUyRndTVDEzcHd5aGdwWXJ1ZUlIZWhIaFVQJTBBZjBhUUhzZVRrNXM2bnJieG5EUnF1a2xNRXV3cjlxdGt4cGNibU5YJTJCWjdxQkM4bSUyQjNtVjI3WTFCNkFRUU1HeWolMEFLam9DNGozZ01lMkF2SzU1VERaYU55RjNVZ0ZTdEIlMkZmcERTZmFiOW9tWWJsY3piRDdsUGJ5NVBFVFIzYjBMYTElMEFKdDhFd0wlMkYlMkJ1YmNKOHExQjB1cHgzRmJocGozemo0TUVwQ0xNM2VXM2JMQWpxanZFM0wlMkY3VkclMkJPQjRNaHhyczglMEE0UUhhZ0NOejNmOWM2JTJGN0cwdnE2dmJtQ09EbFFPMHFwekpDSkw5VTFRMlh3d0FHSk1ZSEphSThLOTF2T3A4bUolMEFWNUtrUFRPQWd3N2FRY09XcDNjajhJWEJhd29tbHlLRXNHVDhiZzJBcUlSQm80TTJ2Z2Q1NlREeVFnRWxSVzUzJTBBdDE1RHVUMThRbTB1JTJCb3FnVTJYOE9DaFFKQ0Q3YkVheUNyejZZTDhHcTJMZmhDbCUyQms1Y1pHSEpwUDNDeHBDOG0lMEElMkZHQ2FzZyUyRndLeU1vMmNkc09wQjR6U0FtOGhZUHRqaVdrc0JlJTJCQ3kxd3g4SkZ1JTJCSWVSQlVwbFg5V2lVJTJGQXBUdyUwQUJYN2hENElCTGx4WFJGc2dnMlEydWZBd0dqeVJlUkhqY3N5Mk55TmpFMzNsJTJCQWdoeVB5ZE9HU3owVkV4TlFSMSUwQUtmQWY4SmJXUXNhdmg4cXJiU3duYXhjemlOcU03QWklMkZmd0l2b3c1VkJwY2p5TGUxRTBsTiUyQnpUWFdnZzhSRkRGJTBBUkNHelpkR1g4UHdsMVBjN1AzYmI4NSUyQjh3Mk1RV2lOeXBwN1FRZUJBYVRISFJLcVRaVXVRejZBM1l0VjFuNlFHJTBBdmN4VmslMkZ0RFFSYXF6bXpGQWdNQkFBR2pGekFWTUJNR0ExVWRKUVFNTUFvR0NDc0dBUVVGQndNQ01BMEdDU3FHJTBBU0liM0RRRUJDd1VBQTRJQ0FRQUJKQkN2N0Uwd3laVm1JdHRhWDBpaUdZZk10YnFYNGFxaElEWnlLWkY1dG9raCUwQWMyNjc3MkZjZSUyRmZuUU5pN1Z1SW0wdVU3WEdOeGR6VXRXYUJaJTJGak5HWFRDN0QyN1JBelklMkZxb0hyNHhpcnNQRTElMEFmSExnVFpneU0zOURyQ0FVUWZqSSUyQmpORURyRnJxMzV1MFZ3WkVzSzBJdzZvYXAlMkYwTUlJV1Fycm9tQUhmMVUyaCUwQTBVMDIlMkZBdHhtN2hxbEhFWXl3c3AwOHQlMkJhMVRDUE8xb2NjVW9yOUpGVWhLdHpJWEtmV3VPcnhyMDNWTnN6RjNOJTBBS2hZTDBRNkNlR1hONTFkajVRNEhHdTVQWXhIdjk2MXRGZzI0V0VSU25OUGUxbzV0dTFhZXo3d2o1VkNyeHJScyUwQVZDVXR4OHFVenFNWTUzVlNCY1dSMXpXM0tuTmpCN0piMlg0aFpVSyUyRmJzR1ZIM0tNSEljaGRlV3ZLM2g1MzY1YyUwQUdMcE1PUENDc3Q0eFAyeExHSU5qczNkZDdkdVhZMnpBSTcySTB2WFpIcDdZZFYzT3BQdDk4VjVreVd6bm5YUW0lMEExeUZNSFFya0tTZVMzYjN5a1N1Y1I3T1IzeDNtZEtYOGFvNTBwcjJuaGptd3V4JTJCWlNjM3U5UjIzamtYUjBYZXMlMEFkRFpyWGlnNTFXU1ZvU3JzMllsVWdJc0hwblk1U2xJa0tZWGE2aFVqbWc3U0ZBUWdUTEQxa2NPa29xblMzTUR6JTBBN29qV1RUQkhtTldsbzc3am9WeGo4Z1ZIVXV5UkhKNVRvc3BiSWtaak5hRUhCR2hLU3Jha0JkYiUyQmllRnF1bGMlMkIlMEFGTUN6aU1ZSmdZbkFLMEMxY3JyTmF2OEw3UGhTaTg4b2t1VWhJcTNNbUJhUnY0bGVBRjRQMlJRUyUyQlBUYkJ3JTNEJTNEJTBBLS0tLS1FTkQlMjBDRVJUSUZJQ0FURS0tLS0tJTBBDQpjb250ZW50LWxlbmd0aDoxMTENCnVzZXItYWdlbnQ6Y3VybC83Ljg2LjANCg==",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "client-mtls",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "0oHlSlpPFXzeBzMZnNVzwlmXoxXsrFPX",
+							"type": "default",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/demo/sessions/21a01210-3082-4927-b573-18a183b267f8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"demo",
+						"sessions",
+						"21a01210-3082-4927-b573-18a183b267f8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
