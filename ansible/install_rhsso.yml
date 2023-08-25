@@ -1,0 +1,47 @@
+---
+- name: Installation of Red Hat Single Sign-On
+  hosts: mi_server_red_redhat 
+  become: True
+  become_method: "sudo"
+  become_user: "root"
+
+  vars:
+    install_dir: "/opt/sso/"
+    sso_zip_file: "rh-sso-7.6.0-server-dist.zip"
+
+  collections:
+    - redhat.sso
+
+  tasks:
+    - name: Copy installation files
+      block:
+        - name: Ensure exists installation directory
+          ansible.builtin.file:
+            path: "{{ install_dir }}"
+            state: directory
+            owner: root
+            group: root
+            mode: 0644
+        - name: Copy rh-sso zip file to host
+          ansible.builtin.copy:
+            src: "{{ sso_zip_file }}"
+            dest: "{{ install_dir }}"
+            owner: root
+            group: root
+            mode: 0644
+        - name: Import RHSSO installtion role
+          ansible.builtin.import_role:
+            name: redhat.sso.sso
+          vars:
+            sso_offline_install: True
+            sso_admin_password: redhat1234567890
+            rhn_username: 
+            rhn_password: 
+      rescue:
+        - name: Configuration error message
+          ansible.builtin.debug:
+            msg: >
+              One of the configuration changes failed
+
+ 
+
