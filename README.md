@@ -81,3 +81,6 @@ There we have defined the following tests:
 
 # Securing applications with Keycloack
 To secure applications with Keycloack please see [Securing applications with Keycloak](./secured-apps/README.md)
+
+# ANSIBLE deployment
+To launch a deployment of RH-SSO on a remote host (not Openshift) using an Ansbile Playbook, go to [Ansible Playbook for RH-SSO](./ansible/README.md)

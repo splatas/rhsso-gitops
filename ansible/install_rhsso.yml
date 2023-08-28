@@ -1,6 +1,6 @@
 ---
 - name: Installation of Red Hat Single Sign-On
-  hosts: mi_server_red_redhat 
+  hosts: mi_server_red_casa
   become: True
   become_method: "sudo"
   become_user: "root"
