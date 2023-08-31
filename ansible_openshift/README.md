@@ -2,6 +2,13 @@
 The main idea is to move all *oc commands* to an Ansible Playbook.
 
 
+Run:
+```
+$ ansible-playbook install_rhsso-openshift-custom.yml --ask-become-pass
+```
+
+
+
 --------------------------------------
 # ORIGINAL IMPLEMENTATION - Red Hat Single Sign-On in Openshift 
 
@@ -105,7 +112,7 @@ Params:
   $ oc new-app --template=sso76-ocp4-x509-https-custom \
           --param=SSO_ADMIN_USERNAME=admin \
           --param=SSO_ADMIN_PASSWORD="redhat01" \
-          --param=IMAGE_STREAM_NAMESPACE=rhn-gps-splatas-dev
+          --param=IMAGE_STREAM_NAMESPACE=rhsso-dev
   ```
 
 

@@ -1,0 +1,20 @@
+---
+- name: Installation of Red Hat Single Sign-On on Openshift
+  hosts: mi_server_red_redhat
+  become: True
+  become_method: "sudo"
+  become_user: "root"
+
+  vars:
+    namespace_dev: rhsso-dev
+    
+    install_dir: "/opt/sso/"
+    #sso_zip_file: "rh-sso-7.6.0-server-dist.zip"
+
+  tasks:
+    - name: Create a namespace
+      kubernetes.core.k8s:
+        name: "{{ namespace_dev }}"
+        api_version: v1
+        kind: Namespace
+        state: present

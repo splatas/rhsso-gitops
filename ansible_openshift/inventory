@@ -1,0 +1,8 @@
+localhost ansible_connection=local
+
+[mi_server_red_redhat]
+#10.200.195.196
+10.200.195.196 ansible_ssh_user=splatas ansible_ssh_pass=CHANGE_ME
+
+[mi_server_red_casa]
+192.168.0.188 ansible_ssh_user=splatas ansible_ssh_pass=CamilaTomas2023@
