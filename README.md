@@ -61,7 +61,13 @@ To get my GITHUB_TOKEN go to: https://github.com/settings/tokens => 'Generate ne
 
 
 # HELM approach
-See [Helm Chart installation](./rhsso-operator/README.md)
+We have two installation process based on Helm:
+
+- For RH-SSO standard installation using Operators please see [Helm Chart RHSSO Standard installation](./rhsso-operator/README.md)
+
+- For RH-SSO Custom Installation with Templates (to connect a SQL Server DB, for example), please see [Helm Chart RHSSO Custom installation](./helm-charts/README.md)
+
+
 
 # Testing Keycloack/RH-SSO
 ## Postman

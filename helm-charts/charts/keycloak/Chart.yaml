@@ -1,0 +1,34 @@
+apiVersion: v2
+# name: keycloak
+name: rhsso-sqlserver
+# version: 18.4.3
+version: 1.0.0
+# appVersion: 17.0.1-legacy
+appVersion: "7.6.1"
+# description: Open Source Identity and Access Management For Modern Applications and Services
+description: A Helm chart for Red Hat Single Sign-On
+keywords:
+  - sso
+  - idm
+  - openid connect
+  - saml
+  - kerberos
+  - ldap
+# home: https://www.keycloak.org/
+# icon: https://www.keycloak.org/resources/images/keycloak_icon_512px.svg
+home: https://access.redhat.com/products/red-hat-single-sign-on/
+icon: https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo.svg
+sources:
+  - https://github.com/codecentric/helm-charts
+  - https://github.com/jboss-dockerfiles/keycloak
+  - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+maintainers:
+  - name: unguiculus
+    email: unguiculus@gmail.com
+  - name: thomasdarimont
+    email: thomas.darimont+github@gmail.com
+dependencies:
+  - name: postgresql
+    version: 10.16.2
+    repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+    condition: postgresql.enabled

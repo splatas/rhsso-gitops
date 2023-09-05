@@ -1,19 +1,21 @@
 ---
 subscription:
   name: rhsso-operator
-  namespace: rhsso-dev
+  #namespace: rhsso-dev
+  namespace: "rhn-gps-splatas-dev"
   startingCSV: rhsso-operator.7.6.1-opr-005
 
 secret:
-  postgres_database: ""
-  postgres_username: ""
-  postgres_password: ""
-  postgres_external_address: ""
-  postgres_external_port: ""
+  postgres_database: "CHANGE_ME"
+  postgres_username: "CHANGE_ME"
+  postgres_password: "CHANGE_ME"
+  postgres_external_address: "CHANGE_ME"
+  postgres_external_port: "CHANGE_ME"
 
 keycloak:
   name: rhsso-dev
-  namespace: rhsso-dev
+  #namespace: rhsso-dev
+  namespace: "rhn-gps-splatas-dev"
   disableReplicasSyncing: true
   multiAvailablityZones:
     enabled: true
