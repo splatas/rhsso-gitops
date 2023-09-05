@@ -1,3 +1,41 @@
+# Custom RH-SSO installation based on Helm 
+
+## Prerequisites
+1. To resolve dependencies (PostgreSQL DB) it is needed to run the following commands:
+
+```console
+helm repo add bitnami https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+```
+
+You should see:
+
+![Repo List](./images/repo-list.png)
+
+
+2. Build dependencies: 
+
+```console
+helm dependency build ./charts/keycloak
+```
+
+## Installation
+
+```console
+export NAMESPACE=CHANGE_ME
+```
+
+To install RHSSO Helm Chart run the following command:
+```console
+helm install rhsso-sqlserver ./charts/keycloak -n ${NAMESPACE}
+```
+
+
+![Repo List](./images/deployment.png)
+
+
+
+----
+
 # codecentric Helm Charts
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
