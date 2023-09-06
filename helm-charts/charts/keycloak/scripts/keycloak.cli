@@ -1,8 +1,8 @@
-embed-server --server-config=standalone-ha.xml --std-out=echo
+embed-server --server-config=standalone-openshift.xml --std-out=echo
 batch
 
 #echo Configuring node identifier
-echo Se aplica la configuración customizada para Abanca
+echo "-----Se aplica la configuración customizada para Abanca-----"
 echo Configuring node identifier
 
 ## Sets the node identifier to the node name (= pod name). Node identifiers have to be unique. They can have a
@@ -10,7 +10,7 @@ echo Configuring node identifier
 /subsystem=transactions:write-attribute(name=node-identifier, value=${jboss.node.name})
 
 echo Finished configuring node identifier
-echo Configuración customizada para Abanca aplicada.
+echo "-----Configuración customizada para Abanca aplicada.-----"
 
 run-batch
-stop-embedded-server
+#stop-embedded-server

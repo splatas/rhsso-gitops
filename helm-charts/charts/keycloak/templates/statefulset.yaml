@@ -139,7 +139,12 @@ spec:
             {{- range $key, $value := .Values.startupScripts }}
             - name: startup
               mountPath: "/opt/jboss/startup-scripts/{{ $key }}"
+              ##################################################
+              #  PROBAR EL postconfigure.sh DESDE ACÁ
+              ##################################################
+              #mountPath: "/opt/eap/extensions/postconfigure.sh"
               subPath: "{{ $key }}"
+              #subPath: "postconfigure.sh"
               readOnly: true
             {{- end }}
             {{- with .Values.extraVolumeMounts }}
